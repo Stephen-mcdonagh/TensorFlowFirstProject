@@ -134,3 +134,35 @@ with tf.Session() as sess:
 
     plt.legend(loc='upper left')
     plt.show()
+
+# 
+    # Plot another graph that animation of how Gradient Descent sequentually adjusted size_factor and price_offset to 
+    # find the values that returned the "best" fit line.
+    fig, ax = plt.subplots()
+    line, = ax.plot(house_size, house_price)
+
+    plt.rcParams["figure.figsize"] = (10,8)
+    plt.title("Gradient Descent Fitting Regression Line")
+    plt.ylabel("Price")
+    plt.xlabel("Size (sq.ft)")
+    plt.plot(train_house_size, train_price, 'go', label='Training data')
+    plt.plot(test_house_size, test_house_price, 'mo', label='Testing data')
+
+    def animate(i):
+        line.set_xdata(train_house_size_norm * train_house_size_std + train_house_size_mean)  # update the data
+        line.set_ydata((fit_size_factor[i] * train_house_size_norm + fit_price_offsets[i]) * train_price_std + train_price_mean)  # update the data
+        return line,
+ 
+     # Init only required for blitting to give a clean slate.
+    def initAnim():
+        line.set_ydata(np.zeros(shape=house_price.shape[0])) # set y's to 0
+        return line,
+
+    ani = animation.FuncAnimation(fig, animate, frames=np.arange(0, fit_plot_idx), init_func=initAnim,
+                                 interval=1000, blit=True)
+
+    plt.show()   
+
+
+
+    
