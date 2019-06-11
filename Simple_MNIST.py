@@ -1,4 +1,4 @@
-# Section 2 
+# Section 2.1 
 #   Introduction course to Tensorflow
 #   11/06/2019
 #   Simple Neural Network to classify greyscale handwritten digits from MNIST dataset

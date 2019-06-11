@@ -1,6 +1,6 @@
-
+# Section 1 
 #   Introduction course to Tensorflow
-#   11/06/2019
+#   06/06/2019
 #   This is a very simple prediction of house prices based on house size, implemented 
 #   in TensorFlow.  This code is part of Pluralsight's course "TensorFlow: Getting Started"
 #
