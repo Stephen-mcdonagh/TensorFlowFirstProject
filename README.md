@@ -1,4 +1,4 @@
-# First Look at Tensorflow
+# First Look at Tensorflow using Pluralsight course.
 
 ## Introduction Course to Tensorflow
 
